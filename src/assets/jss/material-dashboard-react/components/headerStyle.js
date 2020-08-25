@@ -13,16 +13,16 @@ import {
 
 const headerStyle = () => ({
   appBar: {
-    backgroundColor: "transparent",
+    backgroundColor: "white",
     width: "100%",
     paddingTop: "10px",
     zIndex: "1029",
     color: grayColor[7],
     border: "0",
     borderRadius: "3px",
-    padding: "10px 0",
+    padding: "0px 10vh",
     transition: "all 150ms ease 0s",
-    minHeight: "50px",
+ 
     display: "block",
   },
   container: {
@@ -72,6 +72,12 @@ const headerStyle = () => ({
     backgroundColor: dangerColor[0],
     color: whiteColor,
     ...defaultBoxShadow,
+  },
+  searchWrapper: {
+    display: "inline-block",
+  },
+  logo: {
+    width: "50px",
   },
 });
 
