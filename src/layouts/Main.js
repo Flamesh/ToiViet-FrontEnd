@@ -16,7 +16,8 @@ import routes from "routes.js";
 import styles from "assets/jss/material-dashboard-react/layouts/adminStyle.js";
 
 import bgImage from "assets/img/sidebar-2.jpg";
-
+import ErrorBoundary from "components/ErrorBoundary/ErrorBoundary";
+import { connect } from "react-redux";
 
 let ps;
 
@@ -31,7 +32,7 @@ const switchRoutes = (
 
 const useStyles = makeStyles(styles);
 
-export default function Main({ ...rest }) {
+function Main({ ...rest }) {
   // styles
   const classes = useStyles();
   // ref to help us initialize PerfectScrollbar on windows devices
@@ -82,8 +83,9 @@ export default function Main({ ...rest }) {
     };
   }, [mainPanel]);
   return (
-    <div className={classes.wrapper}>
-      {/* <Sidebar
+    <ErrorBoundary>
+      <div className={classes.wrapper}>
+        {/* <Sidebar
         routes={routes}
         logoText={"Creative Tim"}
         logo={logo}
@@ -93,26 +95,34 @@ export default function Main({ ...rest }) {
         color={color}
         {...rest}
       /> */}
-      <div className={classes.mainPanel} ref={mainPanel}>
-        <Navbar
-          routes={routes}
-          handleDrawerToggle={handleDrawerToggle}
-          {...rest}
-        />
-        {/* On the /maps route we want the map to be on full screen - this is not possible if the content and conatiner classes are present because they have some paddings which would make the map smaller */}
-        <div className={classes.content}>
-          <div className={classes.container}>{switchRoutes}</div>
+        <div className={classes.mainPanel} ref={mainPanel}>
+          <Navbar
+            routes={routes}
+            handleDrawerToggle={handleDrawerToggle}
+            {...rest}
+          />
+          {/* On the /maps route we want the map to be on full screen - this is not possible if the content and conatiner classes are present because they have some paddings which would make the map smaller */}
+          <div className={classes.content}>
+            <div className={classes.container}>{switchRoutes}</div>
+          </div>
+          <Footer />
+          <FixedPlugin
+            handleImageClick={handleImageClick}
+            handleColorClick={handleColorClick}
+            bgColor={color}
+            bgImage={image}
+            handleFixedClick={handleFixedClick}
+            fixedClasses={fixedClasses}
+          />
         </div>
-        <Footer />
-        <FixedPlugin
-          handleImageClick={handleImageClick}
-          handleColorClick={handleColorClick}
-          bgColor={color}
-          bgImage={image}
-          handleFixedClick={handleFixedClick}
-          fixedClasses={fixedClasses}
-        />
       </div>
-    </div>
+    </ErrorBoundary>
   );
 }
+function mapStateToProps(state) {
+  return {
+    loginState: state.auth.loginState,
+  };
+}
+
+export default connect(mapStateToProps)(Main);

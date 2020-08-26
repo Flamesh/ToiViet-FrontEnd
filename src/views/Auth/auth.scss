@@ -1,0 +1,16 @@
+.root-login {
+  background-color: white;
+  height: 70vh;
+  padding: 10vh 0px;
+  text-align: center;
+  .MuiPaper-elevation1 {
+    box-shadow: none;
+  }
+  .logo {
+    width: 50px;
+    margin: 10px 0px;
+  }
+  .MuiTypography-h5 {
+    font-size: 1.4;
+  }
+}

@@ -1,5 +1,7 @@
 import React from "react";
 import classNames from "classnames";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -21,7 +23,7 @@ import styles from "assets/jss/material-dashboard-react/components/headerLinksSt
 
 const useStyles = makeStyles(styles);
 
-export default function AdminNavbarLinks() {
+function AdminNavbarLinks(props) {
   const classes = useStyles();
   const [openNotification, setOpenNotification] = React.useState(null);
   const [openProfile, setOpenProfile] = React.useState(null);
@@ -75,7 +77,10 @@ export default function AdminNavbarLinks() {
           <font color="#FFFFFF">Viết bài</font>
         </a>
       </Fab>
-      <div className={classes.manager}>
+      <div
+        className={classes.manager}
+        style={{ display: props.loginState ? "" : "none" }}
+      >
         <Button
           color={window.innerWidth > 959 ? "transparent" : "white"}
           justIcon={window.innerWidth > 959}
@@ -153,7 +158,10 @@ export default function AdminNavbarLinks() {
           )}
         </Poppers>
       </div>
-      <div className={classes.manager}>
+      <div
+        className={classes.manager}
+        style={{ display: props.loginState ? "" : "none" }}
+      >
         <Button
           color={window.innerWidth > 959 ? "transparent" : "white"}
           justIcon={window.innerWidth > 959}
@@ -217,6 +225,32 @@ export default function AdminNavbarLinks() {
           )}
         </Poppers>
       </div>
+      <div
+        className={classes.manager}
+        style={{ display: props.loginState ? "none" : "" }}
+      >
+        <a href="/login">Đăng nhập</a>
+        <div
+          style={{
+            borderLeft: "1px solid",
+            height: "5px",
+            display: "inline",
+            margin: "0px 5px",
+          }}
+        />
+        <a href="/register">Đăng ký</a>
+      </div>
     </div>
   );
 }
+AdminNavbarLinks.propTypes = {
+  loginState: PropTypes.bool.isRequired,
+};
+
+function mapStateToProps(state) {
+  return {
+    loginState: state.auth.loginState,
+  };
+}
+
+export default connect(mapStateToProps)(AdminNavbarLinks);

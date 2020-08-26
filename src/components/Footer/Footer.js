@@ -18,23 +18,18 @@ export default function Footer(props) {
         <div className={classes.left}>
           <List className={classes.list}>
             <ListItem className={classes.inlineBlock}>
-              <a href="#home" className={classes.block}>
+              <a href="/" className={classes.block}>
                 Home
               </a>
             </ListItem>
             <ListItem className={classes.inlineBlock}>
-              <a href="#company" className={classes.block}>
-                Company
+              <a href="#policy" className={classes.block}>
+                Điều khoản sử dụng
               </a>
             </ListItem>
             <ListItem className={classes.inlineBlock}>
-              <a href="#portfolio" className={classes.block}>
-                Portfolio
-              </a>
-            </ListItem>
-            <ListItem className={classes.inlineBlock}>
-              <a href="#blog" className={classes.block}>
-                Blog
+              <a href="https://www.facebook.com/T%C3%B4i-vi%E1%BA%BFt-578273272840140" className={classes.block}>
+                Fanpage
               </a>
             </ListItem>
           </List>
@@ -43,13 +38,12 @@ export default function Footer(props) {
           <span>
             &copy; {1900 + new Date().getYear()}{" "}
             <a
-              href="https://www.creative-tim.com?ref=mdr-footer"
+              href="https://github.com/Flamesh"
               target="_blank"
               className={classes.a}
             >
-              Creative Tim
+              Flamesh
             </a>
-            , made with love for a better web
           </span>
         </p>
       </div>

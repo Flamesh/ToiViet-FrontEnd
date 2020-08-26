@@ -121,13 +121,13 @@ h6 {
 }
 
 a {
-  color: #9c27b0;
+  color: #2730b0;
   text-decoration: none;
 }
 
 a:hover,
 a:focus {
-  color: #89229b;
+  color: #229b69;
   text-decoration: none;
 }
 
@@ -499,7 +499,7 @@ footer ul li a:hover {
 }
 
 .MuiFab-root {
-  box-shadow: none;
+  box-shadow: none !important;
 }
 @media (min-width: 600px) {
   .MuiToolbar-regular {

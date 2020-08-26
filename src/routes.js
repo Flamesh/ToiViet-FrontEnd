@@ -14,7 +14,7 @@ import Typography from "views/Typography/Typography.js";
 import Icons from "views/Icons/Icons.js";
 import Maps from "views/Maps/Maps.js";
 import NotificationsPage from "views/Notifications/Notifications.js";
-
+import Login from "views/Auth/login";
 // core components/views for RTL layout
 
 const dashboardRoutes = [
@@ -59,6 +59,12 @@ const dashboardRoutes = [
     name: "Notifications",
     icon: Notifications,
     component: NotificationsPage,
+  },
+  {
+    path: "/login",
+    name: "Login",
+    icon: Notifications,
+    component: Login,
   },
 ];
 
