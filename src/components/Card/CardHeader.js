@@ -9,23 +9,36 @@ import { makeStyles } from "@material-ui/core/styles";
 
 // core components
 import styles from "assets/jss/material-dashboard-react/components/cardHeaderStyle.js";
-
+import "./Card.scss";
 const useStyles = makeStyles(styles);
 
 export default function CardHeader(props) {
   const classes = useStyles();
-  const { className, children, color, plain, stats, icon, ...rest } = props;
+  const {
+    className,
+    image,
+    title,
+    color,
+    plain,
+    stats,
+    icon,
+    id,
+    ...rest
+  } = props;
   const cardHeaderClasses = classNames({
     [classes.cardHeader]: true,
     [classes[color + "CardHeader"]]: color,
     [classes.cardHeaderPlain]: plain,
     [classes.cardHeaderStats]: stats,
     [classes.cardHeaderIcon]: icon,
-    [className]: className !== undefined
+    [className]: className !== undefined,
   });
   return (
     <div className={cardHeaderClasses} {...rest}>
-      {children}
+      <img src={image} alt={"hinh anh"} className={"header-image"} />
+      <a href={`./bai-dang/${id}`} className={"header-title"}>
+        {title}
+      </a>
     </div>
   );
 }
@@ -38,10 +51,13 @@ CardHeader.propTypes = {
     "danger",
     "info",
     "primary",
-    "rose"
+    "rose",
   ]),
   plain: PropTypes.bool,
   stats: PropTypes.bool,
   icon: PropTypes.bool,
-  children: PropTypes.node
+  children: PropTypes.node,
+  title: PropTypes.string,
+  image: PropTypes.string,
+  id: PropTypes.string,
 };

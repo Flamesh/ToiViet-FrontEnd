@@ -20,10 +20,10 @@ export default function Card(props) {
     [classes.cardPlain]: plain,
     [classes.cardProfile]: profile,
     [classes.cardChart]: chart,
-    [className]: className !== undefined
+    [className]: className !== undefined,
   });
   return (
-    <div className={cardClasses} {...rest}>
+    <div className={cardClasses} style={{ textAlign: "justify" }} {...rest}>
       {children}
     </div>
   );
@@ -34,5 +34,5 @@ Card.propTypes = {
   plain: PropTypes.bool,
   profile: PropTypes.bool,
   chart: PropTypes.bool,
-  children: PropTypes.node
+  children: PropTypes.node,
 };

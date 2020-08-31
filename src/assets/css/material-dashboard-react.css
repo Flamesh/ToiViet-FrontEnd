@@ -509,3 +509,6 @@ footer ul li a:hover {
 .MuiToolbar-root {
   min-height: 10px !important;
 }
+.MuiTab-root:hover{
+  color: #3D5BAF
+}

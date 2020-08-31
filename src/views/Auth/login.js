@@ -6,9 +6,32 @@ import CustomInput from "../../components/CustomInput/CustomInput";
 import CustomButton from "../../components/CustomButtons/Button";
 import logo from "../../assets/img/logo.png";
 
+import { base_login } from "../../enviroment/auth";
 import "./auth.scss";
+import { _post } from "services/baseAPI";
 
 function login() {
+  const submit = () => {
+    let password = document.getElementById("login-password").value;
+    let email = document.getElementById("login-username").value;
+    const user = {
+      user: {
+        email: email,
+        password: password,
+      },
+    };
+    _post(user, base_login, null)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((e) => {
+        console.log(e.response.data);
+      });
+    // const header = {
+    //   clinet: process.env.CLIENT_ID,
+    //   secret: process.env.SECRET,
+    // };
+  };
   return (
     <div className="root-login">
       <Grid container justify="center" alignItems="center">
@@ -16,7 +39,7 @@ function login() {
           <Card className="card">
             <CardContent>
               <img src={logo} className="logo" />
-              <br/>
+              <br />
               <Typography
                 style={{ fontWeight: "bold" }}
                 variant="h5"
@@ -26,19 +49,25 @@ function login() {
               </Typography>
               <CustomInput
                 labelText="Tên đăng nhập"
-                id="company-disabled"
+                id="login-username"
                 formControlProps={{
                   fullWidth: true,
                 }}
               />
               <CustomInput
                 labelText="Mật khẩu"
-                id="company-disabled"
+                id="login-password"
                 formControlProps={{
                   fullWidth: true,
                 }}
               />
-              <CustomButton color="primary" fullWidth>
+              <CustomButton
+                color="primary"
+                fullWidth
+                onClick={() => {
+                  submit();
+                }}
+              >
                 Đăng nhập
               </CustomButton>
               <div className="spacing" />

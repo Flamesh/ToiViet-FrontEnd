@@ -5,6 +5,7 @@ import classNames from "classnames";
 import PropTypes from "prop-types";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
+import Avatar from "@material-ui/core/Avatar";
 // @material-ui/icons
 
 // core components
@@ -14,18 +15,22 @@ const useStyles = makeStyles(styles);
 
 export default function CardFooter(props) {
   const classes = useStyles();
-  const { className, children, plain, profile, stats, chart, ...rest } = props;
+  const { className, plain, profile, stats, chart, author, ...rest } = props;
   const cardFooterClasses = classNames({
     [classes.cardFooter]: true,
     [classes.cardFooterPlain]: plain,
     [classes.cardFooterProfile]: profile,
     [classes.cardFooterStats]: stats,
     [classes.cardFooterChart]: chart,
-    [className]: className !== undefined
+    [className]: className !== undefined,
   });
+  console.log(author);
   return (
     <div className={cardFooterClasses} {...rest}>
-      {children}
+      <Avatar src={author.avatarUrl} />
+      <a href={`./tac-gia/${author.id}`}>
+        {author.firstName + " " + author.lastName}
+      </a>
     </div>
   );
 }
@@ -36,5 +41,6 @@ CardFooter.propTypes = {
   profile: PropTypes.bool,
   stats: PropTypes.bool,
   chart: PropTypes.bool,
-  children: PropTypes.node
+  children: PropTypes.node,
+  author: PropTypes.object,
 };

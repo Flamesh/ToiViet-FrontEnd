@@ -76,7 +76,7 @@ export default function Header(props) {
           </IconButton>
         </Hidden>
       </Toolbar>
-      <hr/>
+      <hr />
       <Toolbar>
         <ListType />
       </Toolbar>
