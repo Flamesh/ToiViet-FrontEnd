@@ -1,0 +1,24 @@
+.root-article {
+  background-color: white;
+  padding: 5vh 0px;
+  .header-article {
+    display: flex;
+    align-items: center;
+    div {
+      margin: 0 30px;
+      font-weight: bold;
+    }
+    .avatar{
+        width: 60px !important;
+        height: 60px !important;
+    }
+  }
+  .content {
+      margin: 50px 0px 0 25px;
+      
+    .title {
+      font-weight: bold;
+      
+    }
+  }
+}

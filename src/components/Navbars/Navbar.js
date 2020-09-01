@@ -45,7 +45,10 @@ export default function Header(props) {
       <Toolbar className={classes.container}>
         <div className={classes.flex}>
           {/* Here we create navbar brand, based on route name */}
-          <img src={logo} className="logo" />
+          <a href="/dashboard">
+            <img src={logo} className="logo" />
+          </a>
+
           <Button
             className="btn-search"
             color="white"

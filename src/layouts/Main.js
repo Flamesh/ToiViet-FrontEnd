@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 // creates a beautiful scrollbar
 import PerfectScrollbar from "perfect-scrollbar";
@@ -18,16 +18,27 @@ import styles from "assets/jss/material-dashboard-react/layouts/adminStyle.js";
 import bgImage from "assets/img/sidebar-2.jpg";
 import ErrorBoundary from "components/ErrorBoundary/ErrorBoundary";
 import { connect } from "react-redux";
+import ClipLoader from "react-spinners/ClipLoader";
+import { css } from "@emotion/core";
 
 let ps;
-
+const override = css`
+  display: block;
+  margin: 30vh auto;
+  border-color: red;
+`;
 const switchRoutes = (
-  <Switch>
-    {routes.map((prop, key) => {
-      return <Route path={prop.path} component={prop.component} key={key} />;
-    })}
-    <Redirect from="/" to="/dashboard" />
-  </Switch>
+  <Suspense
+    fallback={
+      <ClipLoader css={override} size={150} color={"#3D5BAF"} loading={true} />
+    }
+  >
+    <Switch>
+      {routes.map((prop, key) => {
+        return <Route path={prop.path} component={prop.component} key={key} />;
+      })}
+    </Switch>
+  </Suspense>
 );
 
 const useStyles = makeStyles(styles);

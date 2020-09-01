@@ -101,7 +101,7 @@ body {
   color: #3c4858;
 }
 hr {
-  border: 1px solid gray
+  border: 1px solid gray;
 }
 
 blockquote p {
@@ -509,6 +509,7 @@ footer ul li a:hover {
 .MuiToolbar-root {
   min-height: 10px !important;
 }
-.MuiTab-root:hover{
-  color: #3D5BAF
+.MuiTab-root:hover {
+  color: #3d5baf;
 }
+

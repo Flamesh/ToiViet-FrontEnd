@@ -28,20 +28,14 @@ export default function Sidebar(props) {
   var links = (
     <List className={classes.list}>
       {routes.map((prop, key) => {
-        var activePro = " ";
         var listItemClasses;
-        if (prop.path === "/upgrade-to-pro") {
-          activePro = classes.activePro + " ";
-          listItemClasses = classNames({
-            [" " + classes[color]]: true
-          });
-        } else {
-          listItemClasses = classNames({
-            [" " + classes[color]]: activeRoute(prop.path)
-          });
-        }
+
+        listItemClasses = classNames({
+          [" " + classes[color]]: activeRoute(prop.path),
+        });
+
         const whiteFontClasses = classNames({
-          [" " + classes.whiteFont]: activeRoute(prop.path)
+          [" " + classes.whiteFont]: activeRoute(prop.path),
         });
         return (
           <NavLink
@@ -54,7 +48,7 @@ export default function Sidebar(props) {
               {typeof prop.icon === "string" ? (
                 <Icon
                   className={classNames(classes.itemIcon, whiteFontClasses, {
-                    [classes.itemIconRTL]: props.rtlActive
+                    [classes.itemIconRTL]: props.rtlActive,
                   })}
                 >
                   {prop.icon}
@@ -62,14 +56,14 @@ export default function Sidebar(props) {
               ) : (
                 <prop.icon
                   className={classNames(classes.itemIcon, whiteFontClasses, {
-                    [classes.itemIconRTL]: props.rtlActive
+                    [classes.itemIconRTL]: props.rtlActive,
                   })}
                 />
               )}
               <ListItemText
                 primary={props.rtlActive ? prop.rtlName : prop.name}
                 className={classNames(classes.itemText, whiteFontClasses, {
-                  [classes.itemTextRTL]: props.rtlActive
+                  [classes.itemTextRTL]: props.rtlActive,
                 })}
                 disableTypography={true}
               />
@@ -88,14 +82,13 @@ export default function Sidebar(props) {
           anchor={"right"}
           open={props.open}
           classes={{
-            paper: classNames(classes.drawerPaper)
+            paper: classNames(classes.drawerPaper),
           }}
           onClose={props.handleDrawerToggle}
           ModalProps={{
-            keepMounted: true // Better open performance on mobile.
+            keepMounted: true, // Better open performance on mobile.
           }}
         >
-          
           <div className={classes.sidebarWrapper}>
             <AdminNavbarLinks />
             {links}
@@ -114,7 +107,7 @@ export default function Sidebar(props) {
           variant="permanent"
           open
           classes={{
-            paper: classNames(classes.drawerPaper)
+            paper: classNames(classes.drawerPaper),
           }}
         >
           <div className={classes.sidebarWrapper}>{links}</div>
@@ -138,5 +131,5 @@ Sidebar.propTypes = {
   image: PropTypes.string,
   logoText: PropTypes.string,
   routes: PropTypes.arrayOf(PropTypes.object),
-  open: PropTypes.bool
+  open: PropTypes.bool,
 };

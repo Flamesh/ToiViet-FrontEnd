@@ -1,0 +1,23 @@
+.root-floating-box {
+  right: 100%;
+  width: 75px;
+ 
+  text-align: center;
+  position: fixed;
+  top: 200px;
+  left: 60px;
+  .MuiIconButton-root {
+    padding: 0px !important;
+  }
+  .MuiIconButton-root:hover {
+    color: #3D5BAF;
+    padding: 0px !important;
+  }
+
+  .action {
+    
+    div {
+      margin: 10px 0px;
+    }
+  }
+}

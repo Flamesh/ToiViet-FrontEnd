@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import "../../assets/scss/component/ListType.scss";
 import { Tabs, Tab } from "@material-ui/core";
 import { listType } from "../../variables/list";
-
+import { Link } from "react-router-dom";
 
 export function ListType() {
   const [value, setValue] = React.useState(0);
@@ -24,7 +24,12 @@ export function ListType() {
         aria-label="scrollable force tabs example"
       >
         {listType.map((item, index) => (
-          <Tab key={index} label={item.name} />
+          <Tab
+            key={index}
+            component={Link}
+            to={`/the-loai/${item.idType}`}
+            label={item.name}
+          />
         ))}
       </Tabs>
     </div>

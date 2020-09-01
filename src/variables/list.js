@@ -1,34 +1,26 @@
 export const listType = [
   {
-    name: "Cho bạn",
-    href: "/aaa",
-  },
-  {
     name: "Tất cả",
-    href: "/aaa",
+    idType: "all",
   },
   {
     name: "Thành viên mới nổi bật",
-    href: "/aaa",
+    idType: "2",
   },
   {
     name: "Sách",
-    href: "/aaa",
+    idType: "3",
   },
   {
     name: "Kiến thức",
-    href: "/aaa",
-  },
-  {
-    name: "Kiến thức",
-    href: "/aaa",
+    idType: "5",
   },
   {
     name: "Kỹ năng sống",
-    href: "/aaa",
+    idType: "6",
   },
   {
     name: "Khác",
-    href: "/aaa",
+    idType: "7",
   },
 ];
