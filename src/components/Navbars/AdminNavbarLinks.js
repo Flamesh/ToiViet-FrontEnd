@@ -19,7 +19,7 @@ import Notifications from "@material-ui/icons/Notifications";
 
 import Button from "components/CustomButtons/Button.js";
 
-import styles from "assets/jss/material-dashboard-react/components/headerLinksStyle.js";
+import styles from "assets/jss/all/components/headerLinksStyle.js";
 
 const useStyles = makeStyles(styles);
 

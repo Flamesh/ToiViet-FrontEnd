@@ -15,7 +15,7 @@ import AdminNavbarLinks from "./AdminNavbarLinks.js";
 
 import Button from "components/CustomButtons/Button.js";
 
-import styles from "assets/jss/material-dashboard-react/components/headerStyle.js";
+import styles from "assets/jss/all/components/headerStyle.js";
 
 import Search from "@material-ui/icons/Search";
 import logo from "../../assets/img/logo.png";

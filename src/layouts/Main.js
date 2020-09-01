@@ -13,7 +13,7 @@ import FixedPlugin from "components/FixedPlugin/FixedPlugin.js";
 
 import routes from "routes.js";
 
-import styles from "assets/jss/material-dashboard-react/layouts/adminStyle.js";
+import styles from "assets/jss/all/layouts/adminStyle.js";
 
 import bgImage from "assets/img/sidebar-2.jpg";
 import ErrorBoundary from "components/ErrorBoundary/ErrorBoundary";
@@ -96,23 +96,12 @@ function Main({ ...rest }) {
   return (
     <ErrorBoundary>
       <div className={classes.wrapper}>
-        {/* <Sidebar
-        routes={routes}
-        logoText={"Creative Tim"}
-        logo={logo}
-        image={image}
-        handleDrawerToggle={handleDrawerToggle}
-        open={mobileOpen}
-        color={color}
-        {...rest}
-      /> */}
         <div className={classes.mainPanel} ref={mainPanel}>
           <Navbar
             routes={routes}
             handleDrawerToggle={handleDrawerToggle}
             {...rest}
           />
-          {/* On the /maps route we want the map to be on full screen - this is not possible if the content and conatiner classes are present because they have some paddings which would make the map smaller */}
           <div className={classes.content}>
             <div className={classes.container}>{switchRoutes}</div>
           </div>

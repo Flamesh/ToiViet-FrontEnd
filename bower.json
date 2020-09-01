@@ -1,21 +1,19 @@
 {
-  "name": "material-dashboard-react",
-  "homepage": "https://github.com/creativetimofficial/material-dashboard-react",
+  "name": "toiviet",
+  "homepage": "https://toiviet.vn",
   "authors": [
-    "creative-tim"
+    "Flamesh"
   ],
-  "description": "A Badass Material-UI Kit based on Material Design",
+  "description": "A website for articles",
   "main": "public/index.html",
   "keywords": [
-    "material",
-    "design",
+    "article",
+    "toiviet",
     "material-ui",
-    "material",
-    "design",
-    "google",
-    "twitter"
+    "trang web cho nguoi thich viet",
+    "bài viết"
   ],
-  "license": "Creative TIM License",
+  "license": "Flamesh License",
   "ignore": [
     "**/.*",
     "node_modules",

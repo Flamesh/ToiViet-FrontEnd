@@ -142,7 +142,7 @@ export default function FixedPlugin(props) {
             <div className="button-container">
               <Button
                 color="success"
-                href="https://www.creative-tim.com/product/material-dashboard-react?ref=mdr-fixed-plugin"
+                href="https://www.creative-tim.com/product/all?ref=mdr-fixed-plugin"
                 target="_blank"
                 fullWidth
               >
@@ -166,7 +166,7 @@ export default function FixedPlugin(props) {
             <Button
               color="info"
               fullWidth
-              href="https://demos.creative-tim.com/material-dashboard-react/#/documentation/tutorial?ref=mdr-fixed-plugin"
+              href="https://demos.creative-tim.com/all/#/documentation/tutorial?ref=mdr-fixed-plugin"
               target="_blank"
             >
               Documentation

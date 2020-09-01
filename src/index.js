@@ -8,7 +8,7 @@ import { colorPrimary, colorSecondary, colorPrimaryLight } from "./const/color";
 // core components
 import Main from "layouts/Main.js";
 import store from "./redux/store";
-import "assets/css/material-dashboard-react.css?v=1.9.0";
+import "assets/css/all-css.css";
 
 const hist = createBrowserHistory();
 

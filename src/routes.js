@@ -15,18 +15,6 @@ const dashboardRoutes = [
     component: lazy(() => import("views/Dashboard/Dashboard")),
   },
   {
-    path: "/user",
-    name: "User Profile",
-    icon: Person,
-    component: lazy(() => import("views/UserProfile/UserProfile")),
-  },
-  {
-    path: "/table",
-    name: "Table List",
-    icon: "content_paste",
-    component: lazy(() => import("views/TableList/TableList")),
-  },
-  {
     path: "/login",
     name: "Login",
     icon: Notifications,
