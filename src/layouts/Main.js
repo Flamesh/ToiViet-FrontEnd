@@ -1,5 +1,6 @@
 import React, { Suspense } from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route, Redirect, Router } from "react-router-dom";
+
 // creates a beautiful scrollbar
 import PerfectScrollbar from "perfect-scrollbar";
 import "perfect-scrollbar/css/perfect-scrollbar.css";
@@ -20,12 +21,13 @@ import ErrorBoundary from "components/ErrorBoundary/ErrorBoundary";
 import { connect } from "react-redux";
 import ClipLoader from "react-spinners/ClipLoader";
 import { css } from "@emotion/core";
+import { UPDATE_LOGIN } from "redux/reducer/const/auth";
 
 let ps;
 const override = css`
   display: block;
   margin: 30vh auto;
-  border-color: red;
+  border-color: #3D5BAF;
 `;
 const switchRoutes = (
   <Suspense
@@ -33,17 +35,22 @@ const switchRoutes = (
       <ClipLoader css={override} size={150} color={"#3D5BAF"} loading={true} />
     }
   >
+
     <Switch>
       {routes.map((prop, key) => {
         return <Route path={prop.path} component={prop.component} key={key} />;
       })}
+      <Redirect from="/" to="/dashboard" />
     </Switch>
+
+
   </Suspense>
 );
 
 const useStyles = makeStyles(styles);
 
-function Main({ ...rest }) {
+function Main(props, { ...rest }) {
+
   // styles
   const classes = useStyles();
   // ref to help us initialize PerfectScrollbar on windows devices
@@ -77,6 +84,11 @@ function Main({ ...rest }) {
   };
   // initialize and destroy the PerfectScrollbar plugin
   React.useEffect(() => {
+    let data = {
+      userID: "113672433",
+      userName: "Flamesh"
+    }
+    props.dispatchLogin(data);
     if (navigator.platform.indexOf("Win") > -1) {
       ps = new PerfectScrollbar(mainPanel.current, {
         suppressScrollX: true,
@@ -100,6 +112,7 @@ function Main({ ...rest }) {
           <Navbar
             routes={routes}
             handleDrawerToggle={handleDrawerToggle}
+            history={props.history}
             {...rest}
           />
           <div className={classes.content}>
@@ -125,4 +138,18 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(Main);
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    dispatchLogin: (data) => {
+      dispatch({
+        type: UPDATE_LOGIN,
+        userID: data.userID,
+        userName: data.userName,
+        loginState: true,
+      })
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Main);

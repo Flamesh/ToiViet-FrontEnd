@@ -67,7 +67,7 @@ export default function Header(props) {
           </div>
         </div>
         <Hidden smDown implementation="css">
-          <AdminNavbarLinks />
+          <AdminNavbarLinks history={props.history} />
         </Hidden>
         <Hidden mdUp implementation="css">
           <IconButton
@@ -92,4 +92,5 @@ Header.propTypes = {
   rtlActive: PropTypes.bool,
   handleDrawerToggle: PropTypes.func,
   routes: PropTypes.arrayOf(PropTypes.object),
+  history: PropTypes.any
 };

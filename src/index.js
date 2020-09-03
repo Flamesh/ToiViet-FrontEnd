@@ -5,8 +5,10 @@ import { Provider } from "react-redux";
 import { Router, Route, Switch, Redirect } from "react-router-dom";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import { colorPrimary, colorSecondary, colorPrimaryLight } from "./const/color";
+import { SnackbarProvider } from 'notistack';
 // core components
 import Main from "layouts/Main.js";
+import Login from "layouts/Auth/Login"
 import store from "./redux/store";
 import "assets/css/all-css.css";
 
@@ -30,14 +32,18 @@ const theme = createMuiTheme({
   },
 });
 ReactDOM.render(
-  <MuiThemeProvider theme={theme}>
+  <MuiThemeProvider theme={theme} >
     <Provider store={store}>
-      <Router history={hist}>
-        <Switch>
-          <Route path="/" component={Main} />
-          <Redirect from="/" to="/dashboard" />
-        </Switch>
-      </Router>
+      <SnackbarProvider maxSnack={3} anchorOrigin={{ vertical: "top", horizontal: "right" }}>
+        <Router history={hist}>
+          <Switch>
+            <Route path="/login" component={Login}/>
+            <Route path="/" component={Main} />
+            <Redirect from="/" to="/dashboard" />
+          </Switch>
+        </Router>
+      </SnackbarProvider>
+
     </Provider>
   </MuiThemeProvider>,
   document.getElementById("root")

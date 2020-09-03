@@ -24,6 +24,7 @@ import styles from "assets/jss/all/components/headerLinksStyle.js";
 const useStyles = makeStyles(styles);
 
 function AdminNavbarLinks(props) {
+  console.log(props.loginState)
   const classes = useStyles();
   const [openNotification, setOpenNotification] = React.useState(null);
   const [openProfile, setOpenProfile] = React.useState(null);
@@ -200,16 +201,20 @@ function AdminNavbarLinks(props) {
                 <ClickAwayListener onClickAway={handleCloseProfile}>
                   <MenuList role="menu">
                     <MenuItem
-                      onClick={handleCloseProfile}
+                      onClick={() => {
+                        window.location.href = "/nguoi-dung";
+                      }}
                       className={classes.dropdownItem}
                     >
                       Profile
                     </MenuItem>
                     <MenuItem
-                      onClick={handleCloseProfile}
+                      onClick={() => {
+                        window.location.href = "/bai-viet-cua-ban";
+                      }}
                       className={classes.dropdownItem}
                     >
-                      Settings
+                      Bài viết của bạn
                     </MenuItem>
                     <Divider light />
                     <MenuItem
@@ -244,7 +249,8 @@ function AdminNavbarLinks(props) {
   );
 }
 AdminNavbarLinks.propTypes = {
-  loginState: PropTypes.bool.isRequired,
+  loginState: PropTypes.bool,
+  history: PropTypes.any
 };
 
 function mapStateToProps(state) {

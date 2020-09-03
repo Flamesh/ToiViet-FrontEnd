@@ -15,17 +15,18 @@ const dashboardRoutes = [
     component: lazy(() => import("views/Dashboard/Dashboard")),
   },
   {
-    path: "/login",
-    name: "Login",
-    icon: Notifications,
-    component: lazy(() => import("views/Auth/login")),
-  },
-  {
     path: "/bai-viet",
-    name: "Bài viết",
+    name: "Bai viet",
     icon: Notifications,
     component: lazy(() => import("views/Detail/DetailArticle")),
   },
+  {
+    path: "/nguoi-dung",
+    name: "Nguoi dung",
+    icon: Notifications,
+    component: lazy(() => import("views/Profile/Profile"))
+
+  }
 ];
 
 export default dashboardRoutes;

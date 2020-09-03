@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { withSnackbar } from 'notistack';
 import { connect } from "react-redux";
 import { Grid, Card, CardContent, Typography } from "@material-ui/core";
 import CustomInput from "../../components/CustomInput/CustomInput";
@@ -7,10 +8,12 @@ import CustomButton from "../../components/CustomButtons/Button";
 import logo from "../../assets/img/logo.png";
 
 import { base_login } from "../../enviroment/auth";
-import "./auth.scss";
+import "./Auth.scss";
 import { _post } from "services/baseAPI";
+import { UPDATE_LOGIN } from "redux/reducer/const/auth";
 
-function login() {
+function login(props) {
+  console.log("login")
   const submit = () => {
     let password = document.getElementById("login-password").value;
     let email = document.getElementById("login-username").value;
@@ -20,13 +23,24 @@ function login() {
         password: password,
       },
     };
-    _post(user, base_login, null)
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((e) => {
-        console.log(e.response.data);
-      });
+    let data = {
+      userID: "113672433",
+      userName: "Flamesh"
+    }
+    props.dispatchLogin(data);
+    props.history.push("./")
+    // window.location.assign("/dashboard")
+    // _post(user, base_login, null)
+    //   .then((res) => {
+    //     console.log(res);
+    //     props.enqueueSnackbar( "Đăng nhập thành công", { variant: 'success' });
+    //   })
+    //   .catch((e) => {
+    //     console.log(e);
+    //     props.enqueueSnackbar( "error", { variant: 'error' });
+    //   });
+
+
     // const header = {
     //   clinet: process.env.CLIENT_ID,
     //   secret: process.env.SECRET,
@@ -88,10 +102,26 @@ function login() {
     </div>
   );
 }
-login.propTypes = {};
+login.propTypes = {
+  enqueueSnackbar: PropTypes.any,
+  dispatchLogin: PropTypes.func,
+};
 
-const mapStateToProps = (state) => ({});
+const mapStateToProps = (state) => ({
+  loginState: state,
+});
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    dispatchLogin: (data) => {
+      dispatch({
+        type: UPDATE_LOGIN,
+        userID: data.userID,
+        userName: data.userName,
+        loginState: true,
+      })
+    }
+  }
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(login);
+export default connect(mapStateToProps, mapDispatchToProps)(withSnackbar(login));

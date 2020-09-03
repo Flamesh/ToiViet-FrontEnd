@@ -1,0 +1,59 @@
+.root-profile {
+  background: white;
+  .header-profile {
+    position: relative;
+    padding: 20px 0 0 0;
+    .MuiPaper-elevation1 {
+      box-shadow: none;
+      min-height: 300px;
+    }
+    .cover {
+      object-fit: cover;
+      height: 25vh;
+      width: 100%;
+    }
+
+    .avatar {
+      position: absolute;
+      width: 90px;
+      border-radius: 50%;
+      left: 20px;
+      top: 30vh;
+    }
+    .btn-change-ava {
+      position: absolute;
+      left: 60px;
+      margin-top: 60px;
+    }
+
+    .avatar-info-content {
+      position: absolute;
+      top: 32vh;
+      left: 140px;
+
+      .name {
+        font-weight: bold;
+        font-size: 1.2rem;
+
+        .btn-edit {
+          margin-left: 20px;
+          border-radius: 15px;
+        }
+        a {
+          color: #2fb5fa;
+        }
+      }
+    }
+  }
+
+  .body {
+    display: inherit;
+    div {
+      margin: 10px 0px;
+    }
+
+    .MuiInputAdornment-root{
+      color: #4d4d4d
+    }
+  }
+}
