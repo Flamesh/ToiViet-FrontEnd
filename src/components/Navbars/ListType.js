@@ -27,7 +27,7 @@ export function ListType() {
           <Tab
             key={index}
             component={Link}
-            to={`/the-loai/${item.idType}`}
+            to={`${item.href}`}
             label={item.name}
           />
         ))}

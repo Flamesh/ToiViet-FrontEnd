@@ -25,6 +25,11 @@
       left: 60px;
       margin-top: 60px;
     }
+    .btn-change-cover {
+      position: absolute;
+      bottom: 140px;
+      right: 20px;
+    }
 
     .avatar-info-content {
       position: absolute;
@@ -54,6 +59,13 @@
 
     .MuiInputAdornment-root{
       color: #4d4d4d
+    }
+
+    .MuiFormControlLabel-labelPlacementTop {
+      margin: 0px;
+    }
+    .MuiInputBase-input{
+      margin-left: 5px;
     }
   }
 }

@@ -26,6 +26,12 @@ const dashboardRoutes = [
     icon: Notifications,
     component: lazy(() => import("views/Profile/Profile"))
 
+  },
+  {
+    path: "/top-tac-gia",
+    name: "Top tac gia",
+    icon: Notifications,
+    component: lazy(() => import("views/TopUser/TopUser"))
   }
 ];
 

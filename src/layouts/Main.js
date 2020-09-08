@@ -56,16 +56,17 @@ function Main(props, { ...rest }) {
   // ref to help us initialize PerfectScrollbar on windows devices
   const mainPanel = React.createRef();
   // states and functions
-  const [image, setImage] = React.useState(bgImage);
-  const [color, setColor] = React.useState("blue");
+  // const [image, setImage] = React.useState(bgImage);
+  // const [color, setColor] = React.useState("blue");
+  const [hiddenAppbar, setHiddenAppbar] = React.useState(true)
   const [fixedClasses, setFixedClasses] = React.useState("dropdown");
-  const [mobileOpen, setMobileOpen] = React.useState(false);
-  const handleImageClick = (image) => {
-    setImage(image);
-  };
-  const handleColorClick = (color) => {
-    setColor(color);
-  };
+  const [mobileOpen, setMobileOpen] = React.useState(true);
+  // const handleImageClick = (image) => {
+  //   setImage(image);
+  // };
+  // const handleColorClick = (color) => {
+  //   setColor(color);
+  // };
   const handleFixedClick = () => {
     if (fixedClasses === "dropdown") {
       setFixedClasses("dropdown show");
@@ -82,13 +83,28 @@ function Main(props, { ...rest }) {
       setMobileOpen(false);
     }
   };
+  // window.onscroll = function() {
+  //   if(window.pageYOffset === 0) {
+  //     alert('I AM AT THE TOP');
+  //   }
+  // };
+  // const [showScroll, setShowScroll] = React.useState(false)
+  // const checkScrollTop = () => {
+  //   if (!showScroll && window.pageYOffset > 400){
+  //     alert('ok')
+  //   } else if (showScroll && window.pageYOffset <= 400){
+  //     console.log("ok")
+  //   }
+  // };
+  // window.addEventListener('scroll', checkScrollTop)
+  // window.addEventListener("scroll", checkScrollTop);
   // initialize and destroy the PerfectScrollbar plugin
   React.useEffect(() => {
-    let data = {
-      userID: "113672433",
-      userName: "Flamesh"
-    }
-    props.dispatchLogin(data);
+    // let data = {
+    //   userID: "113672433",
+    //   userName: "Flamesh"
+    // }
+    // props.dispatchLogin(data);
     if (navigator.platform.indexOf("Win") > -1) {
       ps = new PerfectScrollbar(mainPanel.current, {
         suppressScrollX: true,
@@ -96,7 +112,9 @@ function Main(props, { ...rest }) {
       });
       document.body.style.overflow = "hidden";
     }
+    // console.log(window.)
     window.addEventListener("resize", resizeFunction);
+   
     // Specify how to clean up after this effect:
     return function cleanup() {
       if (navigator.platform.indexOf("Win") > -1) {
@@ -113,20 +131,21 @@ function Main(props, { ...rest }) {
             routes={routes}
             handleDrawerToggle={handleDrawerToggle}
             history={props.history}
+            hiddent={hiddenAppbar}
             {...rest}
           />
           <div className={classes.content}>
             <div className={classes.container}>{switchRoutes}</div>
           </div>
           <Footer />
-          <FixedPlugin
+          {/* <FixedPlugin
             handleImageClick={handleImageClick}
             handleColorClick={handleColorClick}
             bgColor={color}
             bgImage={image}
             handleFixedClick={handleFixedClick}
             fixedClasses={fixedClasses}
-          />
+          /> */}
         </div>
       </div>
     </ErrorBoundary>

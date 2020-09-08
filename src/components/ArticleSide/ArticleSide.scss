@@ -1,0 +1,19 @@
+.root-article-side {
+    margin-top: 30px;
+   
+    .mouth {
+        .MuiListItem-gutters {
+            height: auto;
+            background-color: #EEEEEE;
+            margin: 0px;
+            padding: 0px;
+            .MuiTypography-body1 {
+                font-size: 0.8rem !important;
+            }
+            .MuiTypography-body2 {
+                font-size: 0.7rem;
+            }
+        }
+    }
+   
+}

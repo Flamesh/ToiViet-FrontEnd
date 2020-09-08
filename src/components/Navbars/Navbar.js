@@ -22,6 +22,7 @@ import logo from "../../assets/img/logo.png";
 
 import "../../assets/scss/component/Navbar.scss";
 import { ListType } from "./ListType.js";
+import { Collapse } from "@material-ui/core";
 const useStyles = makeStyles(styles);
 
 export default function Header(props) {
@@ -36,12 +37,13 @@ export default function Header(props) {
   //   });
   //   return name;
   // }
-  const { color } = props;
+  const { color, hiddent } = props;
   const appBarClasses = classNames({
     [" " + classes[color]]: color,
   });
   return (
     <AppBar className={classes.appBar + appBarClasses}>
+      <Collapse in={!hiddent}>
       <Toolbar className={classes.container}>
         <div className={classes.flex}>
           {/* Here we create navbar brand, based on route name */}
@@ -67,7 +69,7 @@ export default function Header(props) {
           </div>
         </div>
         <Hidden smDown implementation="css">
-          <AdminNavbarLinks history={props.history} />
+            <AdminNavbarLinks history={props.history} />
         </Hidden>
         <Hidden mdUp implementation="css">
           <IconButton
@@ -79,6 +81,8 @@ export default function Header(props) {
           </IconButton>
         </Hidden>
       </Toolbar>
+      </Collapse>
+    
       <hr />
       <Toolbar>
         <ListType />
@@ -92,5 +96,6 @@ Header.propTypes = {
   rtlActive: PropTypes.bool,
   handleDrawerToggle: PropTypes.func,
   routes: PropTypes.arrayOf(PropTypes.object),
-  history: PropTypes.any
+  history: PropTypes.any,
+  hiddent: PropTypes.bool
 };

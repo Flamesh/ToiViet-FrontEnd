@@ -1,11 +1,11 @@
 export const listType = [
   {
     name: "Tất cả",
-    idType: "all",
+    href: "/dashboard",
   },
   {
     name: "Thành viên mới nổi bật",
-    idType: "2",
+    href:"/top-tac-gia"
   },
   {
     name: "Sách",
