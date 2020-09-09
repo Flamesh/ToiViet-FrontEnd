@@ -1,9 +1,6 @@
 import React, { Suspense } from "react";
 import { Switch, Route, Redirect, Router } from "react-router-dom";
 
-// creates a beautiful scrollbar
-import PerfectScrollbar from "perfect-scrollbar";
-import "perfect-scrollbar/css/perfect-scrollbar.css";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 // core components
@@ -82,47 +79,15 @@ function Main(props, { ...rest }) {
     if (window.innerWidth >= 960) {
       setMobileOpen(false);
     }
-  };
-  // window.onscroll = function() {
-  //   if(window.pageYOffset === 0) {
-  //     alert('I AM AT THE TOP');
-  //   }
-  // };
-  // const [showScroll, setShowScroll] = React.useState(false)
-  // const checkScrollTop = () => {
-  //   if (!showScroll && window.pageYOffset > 400){
-  //     alert('ok')
-  //   } else if (showScroll && window.pageYOffset <= 400){
-  //     console.log("ok")
-  //   }
-  // };
-  // window.addEventListener('scroll', checkScrollTop)
-  // window.addEventListener("scroll", checkScrollTop);
-  // initialize and destroy the PerfectScrollbar plugin
+  }
   React.useEffect(() => {
     // let data = {
     //   userID: "113672433",
     //   userName: "Flamesh"
     // }
     // props.dispatchLogin(data);
-    if (navigator.platform.indexOf("Win") > -1) {
-      ps = new PerfectScrollbar(mainPanel.current, {
-        suppressScrollX: true,
-        suppressScrollY: false,
-      });
-      document.body.style.overflow = "hidden";
-    }
-    // console.log(window.)
-    window.addEventListener("resize", resizeFunction);
-   
-    // Specify how to clean up after this effect:
-    return function cleanup() {
-      if (navigator.platform.indexOf("Win") > -1) {
-        ps.destroy();
-      }
-      window.removeEventListener("resize", resizeFunction);
-    };
-  }, [mainPanel]);
+    window.addEventListener("resize", resizeFunction); 
+  }, []);
   return (
     <ErrorBoundary>
       <div className={classes.wrapper}>

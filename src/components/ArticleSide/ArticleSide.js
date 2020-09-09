@@ -6,10 +6,17 @@ import {GetDate} from '../../services/getDate'
 import "./ArticleSide.scss"
 
 const array = [1,2,3,4,5];
+const tags = [
+    {id: 1, name: "Truyền cảm hứng"},
+    {id: 2,name: "Quan điểm"},
+    {id: 3,name: "Thể thao"},
+    {id: 4,name: "Tản văn"},
+    {id: 5,name: "Thơ"}
+]
 
 // const array = [
 //     {monthA: [1,2,3,4,5]},
-    
+//     {suitableA: [1,2,3,4]},    
 // ]
 function ArticleSide(props) {
     return (
@@ -47,7 +54,16 @@ function ArticleSide(props) {
                 </List>
             </div>
             </div>
-            
+            <div className="title">
+                Tags nổi bật
+                <Divider />
+                <div className="tags">
+                    {tags.map((item, index) => (
+                            <a key={index} className="tag" href={`/the-loai/${item.id}`}>{item.name}</a>
+                        
+                    ))}
+                </div>
+            </div>
         </div>
     )
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import classNames from "classnames";
 import PropTypes from "prop-types";
 // @material-ui/core components
@@ -27,23 +27,34 @@ const useStyles = makeStyles(styles);
 
 export default function Header(props) {
   const classes = useStyles();
-  // function makeBrand() {
-  //   var name;
-  //   props.routes.map((prop) => {
-  //     if (window.location.href.indexOf(prop.layout + prop.path) !== -1) {
-  //       name = prop.name;
-  //     }
-  //     return null;
-  //   });
-  //   return name;
-  // }
-  const { color, hiddent } = props;
+  const { color } = props;
   const appBarClasses = classNames({
     [" " + classes[color]]: color,
   });
+
+  const [hidden, setHidden] = useState(false)
+
+  // const onScroll = (e) => {
+  //   setScrollTop(e.target.documentElement.scrollTop);
+  //   setScrolling(e.target.documentElement.scrollTop > scrollTop);
+  // }
+
+  const onScrollTop = () => {
+    if(window.pageYOffset < 100 && hidden) {
+      setHidden(false)
+    }
+    else if(window.pageYOffset >= 100 && !hidden ) {
+      setHidden(true)
+    }
+  }
+  
+  useEffect(() => {
+    window.addEventListener("scroll", onScrollTop, true);
+    return (window.removeEventListener("scroll", onScrollTop))
+  }, [hidden])
   return (
     <AppBar className={classes.appBar + appBarClasses}>
-      <Collapse in={!hiddent}>
+      <Collapse in={!hidden}>
       <Toolbar className={classes.container}>
         <div className={classes.flex}>
           {/* Here we create navbar brand, based on route name */}
@@ -81,10 +92,9 @@ export default function Header(props) {
           </IconButton>
         </Hidden>
       </Toolbar>
-      </Collapse>
-    
       <hr />
-      <Toolbar>
+      </Collapse>
+      <Toolbar style={{marginTop: -10}}>
         <ListType />
       </Toolbar>
     </AppBar>
@@ -97,5 +107,5 @@ Header.propTypes = {
   handleDrawerToggle: PropTypes.func,
   routes: PropTypes.arrayOf(PropTypes.object),
   history: PropTypes.any,
-  hiddent: PropTypes.bool
+ 
 };
