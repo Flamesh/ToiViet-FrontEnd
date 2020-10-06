@@ -8,33 +8,35 @@ import Card2 from "components/Card/Card2";
 import { Grid } from "@material-ui/core";
 
 import { title, content, image, summary, id, author } from "variables/artilce";
-import "./Dashboard.scss"
-
+import "./Dashboard.scss";
 
 const array = [
   {
-    title: "Nổi bật"
+    title: "Nổi bật",
+    id: "1",
   },
   {
-    title: 'Thể thao'
+    title: "Thể thao",
+    id: "2",
   },
   {
-    title: 'Tản văn'
+    title: "Tản văn",
+    id: "3",
   },
   {
-    title: 'Quan điểm - Tranh luận'
-  }
-]
+    title: "Quan điểm - Tranh luận",
+    id: "4",
+  },
+];
 export default function Dashboard() {
   return (
     <div className="root-dashboard">
-      {
-        array.map((item, index) => (
-          <Grid container spacing={2} key={index}>
+      {array.map((item, index) => (
+        <Grid container spacing={2} key={index}>
           <Grid item xs={12}>
-            <ArticleHeader title={item.title} />
+            <ArticleHeader title={item.title} id={item.id} />
           </Grid>
-          
+
           <Grid item xs={12} sm={12} md={6} lg={6} xl={6} xxl={6}>
             <Card1
               title={title}
@@ -89,12 +91,8 @@ export default function Dashboard() {
               </Grid>
             </Grid>
           </Grid>
-         
         </Grid>
-
-        ))
-      }
-
+      ))}
     </div>
   );
 }
