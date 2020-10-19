@@ -1,0 +1,2 @@
+Doing: Viết code cho phần TypeArticle. Xong trong thứ 4
+Next: Fix List Profile không ổn lắm
