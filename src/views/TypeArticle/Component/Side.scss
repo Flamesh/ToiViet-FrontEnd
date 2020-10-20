@@ -1,0 +1,20 @@
+.root-floating-box {
+    right: 100%;
+    width: 150px;
+    text-align: left;
+    position: fixed;
+    top: 200px;
+    left: 60px;
+    .MuiSvgIcon-root {
+        vertical-align: middle;
+        color: #3D5BAF;
+    }
+    p {
+    color: #777;
+    font-weight: bold;
+    }
+  
+    .action {
+    }
+  }
+  
