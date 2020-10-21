@@ -513,3 +513,6 @@ footer ul li a:hover {
   color: #3d5baf;
 }
 
+.MuiListItem-gutters {
+  padding: 0px;
+}

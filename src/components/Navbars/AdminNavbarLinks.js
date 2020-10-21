@@ -24,7 +24,7 @@ import styles from "assets/jss/all/components/headerLinksStyle.js";
 const useStyles = makeStyles(styles);
 
 function AdminNavbarLinks(props) {
-  console.log(props.loginState)
+  console.log(props.loginState);
   const classes = useStyles();
   const [openNotification, setOpenNotification] = React.useState(null);
   const [openProfile, setOpenProfile] = React.useState(null);
@@ -70,7 +70,7 @@ function AdminNavbarLinks(props) {
         style={{ marginRight: 30 }}
       >
         <a
-          herf="./writing"
+          href="./writing"
           target="_blank"
           rel="noopener noreferrer"
           className="text"
@@ -234,7 +234,7 @@ function AdminNavbarLinks(props) {
         className={classes.manager}
         style={{ display: props.loginState ? "none" : "" }}
       >
-        <a href="/login">Đăng nhập</a>
+        <a href={"/login"}>Đăng nhập</a>
         <div
           style={{
             borderLeft: "1px solid",
@@ -250,7 +250,7 @@ function AdminNavbarLinks(props) {
 }
 AdminNavbarLinks.propTypes = {
   loginState: PropTypes.bool,
-  history: PropTypes.any
+  history: PropTypes.any,
 };
 
 function mapStateToProps(state) {
