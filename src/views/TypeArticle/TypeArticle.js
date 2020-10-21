@@ -4,7 +4,8 @@ import cover from "../../assets/img/cover.jpeg"
 
 import './TypeArticle.scss'
 
-import Side from "./Component/Side"
+import Side from "./Component/Side/Side"
+import Middle from './Component/Middle/Middle'
 const nameType = "Quan điểm - tranh luận"
 export default function TypeArticle() {
   return (
@@ -32,7 +33,7 @@ export default function TypeArticle() {
           <Side />
         </Grid>
         <Grid item xs={12} sm={12} md={7} lg={7} xxl={7}>
-          b
+          <Middle />
         </Grid>   
         <Grid item xs={0} sm={0} md={3} lg={3} xxl={3}>
           

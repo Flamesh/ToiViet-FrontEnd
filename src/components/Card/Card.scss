@@ -96,14 +96,46 @@
       object-fit: cover;
     }
   }
+}
+
+
+.card3 {
+  // doog article
+  background-color: white;
+  text-align: left;
+  transition: transform 0.5s;
+  margin: 10px;
+  &:hover {
+    transform: scale(1.05);
+    -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+  .img-card {
+    width: 100%;
+    height: 20vh;
+    object-fit: cover;
+  }
+  .title-article {
+    font-size: 1.5vh;
+  }
+  @media (min-width: 0px) and (max-width: 1000px) {
+    .img-card {
+      object-fit: cover;
+    }
+  }
  
 }
 
 .info-footer {
-  display: inline;
+  display: flex;
   padding: 15px 10px;
   margin: 10px 0px;
   line-height: 3;
+  div {
+    margin: 0px 5px;
+  }
+  a {margin: 0px 5px;}
   img {
     width: 5vh;
     height: auto;

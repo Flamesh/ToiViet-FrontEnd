@@ -1,16 +1,9 @@
 import React from 'react'
 
-import ArrowDropUpIcon from "@material-ui/icons/ArrowDropUp";
-import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
-import AddCommentIcon from "@material-ui/icons/AddComment";
-import BookmarkBorderIcon from "@material-ui/icons/BookmarkBorder";
-
-import FacebookIcon from "@material-ui/icons/Facebook";
-import { IconButton, Tooltip, Typography } from "@material-ui/core";
-
 import WhatshotIcon from '@material-ui/icons/Whatshot';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import "./Side.scss"
 
 export default function Side() {
@@ -23,7 +16,7 @@ export default function Side() {
             <p> <StarBorderIcon /> Bài viết mới </p> 
          </a>
         <a className="a-tag" href="/the-loai/nhieu-vote">
-             <p> <ThumbUpIcon /> Bài nhiều vote </p> 
+             <p> <FavoriteBorderIcon /> Bài nhiều vote </p> 
         </a>
       </div>
     )
